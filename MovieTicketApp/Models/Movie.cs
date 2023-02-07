@@ -23,7 +23,7 @@ namespace MovieTicketApp.Models
         public Cinema Cinema { get; set; }
         public int ProducerId { get; set; }
         [ForeignKey("ProducerId")]
-        public Cinema Producer { get; set; }
+        public Producer Producer { get; set; }
 
     }
 }
