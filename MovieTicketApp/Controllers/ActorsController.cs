@@ -19,5 +19,10 @@ namespace MovieTicketApp.Controllers
             var allActors = await _service.GetAll();
             return View(allActors);
         }
+
+        public async Task<IActionResult> Create()
+        {
+            return View();
+        }
     }
 }

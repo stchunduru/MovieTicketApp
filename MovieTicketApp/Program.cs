@@ -9,6 +9,10 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IActorsService, ActorsService>();
+//builder.Services.AddScoped<IProducersService, ProducersService>();
+//builder.Services.AddScoped<ICinemasService, CinemasService>();
+//builder.Services.AddScoped<IMoviesService, MoviesService>();
+//builder.Services.AddScoped<IOrdersService, OrdersService>();
 
 var app = builder.Build();
 
@@ -30,5 +34,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+AppDbInitializer.Seed(app);
 
 app.Run();

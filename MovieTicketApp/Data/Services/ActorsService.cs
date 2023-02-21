@@ -5,7 +5,12 @@ namespace MovieTicketApp.Data.Services
 {
     public class ActorsService : IActorsService
     {
-        static readonly AppDbContext context;
+        private readonly AppDbContext _context;
+
+        public ActorsService(AppDbContext context)
+        {
+            _context = context;
+        }
 
         public void Add(Actor actor)
         {
@@ -19,7 +24,7 @@ namespace MovieTicketApp.Data.Services
 
         public async Task<IEnumerable<Actor>> GetAll()
         {
-            var result = await context.Actors.ToListAsync();
+            var result = await _context.Actors.ToListAsync();
             return result;
         }
 
